@@ -3,6 +3,19 @@
 ## We recommend using randomForest because this algorithm can eliminate interactions over several indenpendent variables that less affect the final results.
 ## Be sure to install thfollowing packages at first, and then modify the codes according to your purpose, and then easily run.
 
+
+##Basic codes
+
+library(randomForest)
+
+y = Dataset
+X = Dataset￥VariableName
+rf.default = randomForest(X,y,ntree=5000)
+
+
+
+##Examples (copyright to 'https://stats.stackexchange.com/questions/183852/can-i-see-the-contribution-way-of-an-input-variable-in-random-forest-model/184000')
+
 library(mlbench)
 library(randomForest)
 library(forestFloor)
@@ -18,4 +31,5 @@ rf.robust  = randomForest(X,y,sampsize=25,ntree=5000,mtry=4,
 
 #plot crosvalidated predictive performance
 plot(roc(rf.default$votes[,2],y),main="ROC: default black, robust is red")
+
 plot(roc(rf.robust$votes[,2],y),col=2,add = T)
